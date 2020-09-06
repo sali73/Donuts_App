@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donuts app</title>
+</head>
+<body>
+<h1>Donuts App</h1>
+{% for product in Product %}
+    <h3>title: {{ product.title }}</h3>
+    <h4>price: {{ product.price }}</h4>
+    <h4>sale_price: {{ product.sale_price }}</h4>
+    <img src="{{product.image}}" alt="donuts image" />
+    <h4>description: {{ product.description}}</h4>
+
+{% endfor %}
+
+
+</body>
+</html>
