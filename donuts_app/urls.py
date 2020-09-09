@@ -17,7 +17,17 @@ from django.contrib import admin
 from django.urls import path
 from api import views
 
+app_name = 'api'
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('Index/', views.Index),
+    path('admin/', admin.site.urls ),
+    path('index/', views.Index , name='index'),
+    path('', views.Home , name= 'home'),
+    path('add/', views.AddDonuts , name='add'),
+    path('add_donuts_form_submission/', views.add_donuts_form_submission , name='add_donuts_form_submission'),
+    path("register/", views.register, name="register"),
+    path("logout", views.logout_request, name="logout"),
+    path("login", views.login_request, name="login"),
+
 ]
+

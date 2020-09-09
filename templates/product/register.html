@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+{% block content %}
+    <div class="container">
+        <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+            <button style="background-color:#F4EB16; color:blue" class="btn btn-outline-info" type="submit">register</button>
+        </form>
+            If you already have an acount,<a href="/login" ><strong>Login</strong></a>instead.
+    </div>
+{% endblock %}
+</body>
+</html>
