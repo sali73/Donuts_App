@@ -10,7 +10,8 @@
 </head>
 <body>
 <h1>Donuts App</h1>
-
+{% block sidebar %}
+{% endblock %}
 {% for product in Product %}
     <div>
         <h3>Donuts: {{ product.title }}</h3>
@@ -20,6 +21,7 @@
         <h4>Description: {{ product.description}}</h4>
     </div>
 {% endfor %}
+
 
 
 

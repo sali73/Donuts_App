@@ -124,3 +124,5 @@ STATICFILES_DIRS = [
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_URL = '/static/'
+
+
