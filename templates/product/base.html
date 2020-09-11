@@ -5,10 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" >
 
     {% if title %}
         <title>Donuts App-{{ title }}</title>
@@ -18,30 +16,33 @@
 </head>
 
 <body>
-<div >
-    {% if messages %}
-        {% for message in messages  %}
-            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-        {% endfor %}
-    {% endif %}
-</div>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-2">
-      {% block sidebar %}
-        <ul class="sidebar-nav">
+  <nav  style="background-color: palevioletred;justify-content: space-between;">
+        <ul class="sidebar-nav" style="justify-content: space-between;">
+            <li><h2 style="color: lightpink"> Donuts</h2></li>
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'index' %}">index</a></li>
             <li><a href="{% url 'add' %}">Add Donuts</a></li>
-            <li><a href="{% url 'register' %}">register</a></li>
+        </ul>
+        <ul class="user-sidebar-nav" >
+          <li><a href="{% url 'register' %}">register</a></li>
             <li><a href="{% url 'login' %}">login</a></li>
             <li><a href="{% url 'logout' %}">logout</a></li>
         </ul>
-     {% endblock %}
-      </div>
-    </div>
-  </div>
-{% block contect %} {% endblock %}
+
+  </nav>
+  <div>
+    {% if messages %}
+        {% for message in messages  %}
+            <div class="alert alert-danger alert-{{ message.tags }}" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+</div>
+{% block contect %}
+    <div class="contacts"></div>
+ {% endblock %}
+  <footer class="foot">
+     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQHUzSwRb_fiziyfhzKDZOiOA-nOhjeMo6Xw&usqp=CAU" alt="icon">
+  </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

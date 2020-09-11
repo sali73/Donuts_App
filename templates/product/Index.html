@@ -1,12 +1,16 @@
 {% extends 'product/base.html' %}
 {% block contect %}
     {% for product in Product %}
-        <div class="index">
-            <h3>Donuts: {{ product.title }}</h3>
-            <h4>Price: {{ product.price }}</h4>
-            <h4>Sale: {{ product.sale_price }}</h4>
-            <img src="{{product.image}}" alt="donuts image" />
-            <h4>Description: {{ product.description}}</h4>
+        <div class="products" style=" display:flex; border: rosybrown 1px solid ; background-color: rosybrown ; padding: 20px ; margin: 20px">
+            <div>
+                <h4>Donuts: {{ product.title }}</h4>
+                <h5>Price: {{ product.price }}</h5>
+                <h5>Sale: {{ product.sale_price }}</h5>
+                <h5>Description: {{ product.description}}</h5>
+            </div>
+            <div class="products-img">
+                <img src="{{product.image}}" alt="donuts image" />
+            </div>
         </div>
     {% endfor %}
 {% endblock %}
