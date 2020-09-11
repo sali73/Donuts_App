@@ -1,30 +1,12 @@
-{%  load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-{#    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">#}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}" />
-    <title>Donuts Lover</title>
-
-</head>
-<body>
-<h1>Donuts App</h1>
-{% block sidebar %}
+{% extends 'product/base.html' %}
+{% block contect %}
+    {% for product in Product %}
+        <div>
+            <h3>Donuts: {{ product.title }}</h3>
+            <h4>Price: {{ product.price }}</h4>
+            <h4>Sale: {{ product.sale_price }}</h4>
+            <img src="{{product.image}}" alt="donuts image" />
+            <h4>Description: {{ product.description}}</h4>
+        </div>
+    {% endfor %}
 {% endblock %}
-{% for product in Product %}
-    <div>
-        <h3>Donuts: {{ product.title }}</h3>
-        <h4>Price: {{ product.price }}</h4>
-        <h4>Sale: {{ product.sale_price }}</h4>
-        <img src="{{product.image}}" alt="donuts image" />
-        <h4>Description: {{ product.description}}</h4>
-    </div>
-{% endfor %}
-
-
-
-
-
-</body>
-</html>
