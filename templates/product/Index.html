@@ -1,7 +1,7 @@
 {% extends 'product/base.html' %}
 {% block contect %}
     {% for product in Product %}
-        <div>
+        <div class="index">
             <h3>Donuts: {{ product.title }}</h3>
             <h4>Price: {{ product.price }}</h4>
             <h4>Sale: {{ product.sale_price }}</h4>
