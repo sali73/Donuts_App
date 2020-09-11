@@ -24,7 +24,6 @@ ul li a{
     height: 90%;
     border-radius: 50%;
 }
-
 footer {
     background-color: palevioletred;
     height: 200px;
@@ -34,5 +33,24 @@ footer > img{
     height: 80%;
     padding: 20px;
     border-radius: 50%;
+}
 
+/*add donuts*/
+.addForm{
+    width: 950px;
+    height: 500px;
+    margin-left: 300px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 150px;
+    background-image: url("https://i.imgur.com/H8cSddt.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-weight: bolder;
+}
+.user-register{
+    margin: 60px;
+}
+.user-login{
+    margin: 120px;
 }

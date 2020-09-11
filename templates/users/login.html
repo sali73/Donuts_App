@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
-{% block content %}
-    <div class="container">
+{% extends "product/base.html" %}
+
+{% block contect %}
+    <div class="user-login">
         <form method="POST">
         {% csrf_token %}
         {{form.as_p}}
@@ -14,6 +9,5 @@
         </form>
         Don't have an account? <a href="/register" target="blank"><strong>register here</strong></a>!
     </div>
+
 {% endblock %}
-</body>
-</html>

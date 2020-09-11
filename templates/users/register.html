@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Register</title>
-</head>
-<body>
-{% block content %}
-    <div class="container">
+{% extends "product/base.html" %}
+
+{% block contect %}
+    <div class="user-register">
         <form method="POST">
         {% csrf_token %}
             <fieldset class="form-group">
@@ -24,4 +19,5 @@
         </div>
 
     </div>
+
 {% endblock %}

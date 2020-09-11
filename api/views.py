@@ -17,6 +17,9 @@ def Home(request):
 def AddDonuts(request):
     return  render (request,"product/Add_Donuts.html")
 
+
+# index views
+# ---------------
 def add_donuts_form_submission(request):
     print('hello form is submitted')
     title = request.POST['title']
@@ -29,6 +32,16 @@ def add_donuts_form_submission(request):
     product.save()
     return render(request,"product/Add_Donuts.html")
 
+# create a view
+# --------------------
+def detail_view(request, id):
+    context = {}
+    context["data"] = Product.objects.get(id=id)
+    return render(request, "product/detail_view.html", context)
+
+
+# user setup
+# ---------------
 def register(request):
     if request.method == 'POST':
         form = NewUserForm(request.POST)
