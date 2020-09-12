@@ -17,12 +17,13 @@
             <td>{{ item.price }}</td>
             <td>{{ item.sale_price }}</td>
         </tr>
+        {% endfor %}
         <tfoot>
         <tr>
             <td>Total: {{cart.totle}}</td>
         </tr>
         </tfoot>
-        {% endfor %}
+
     </table>
 </div>
 {% endblock %}

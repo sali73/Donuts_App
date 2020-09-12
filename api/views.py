@@ -113,13 +113,14 @@ def login_request(request):
                   template_name ="users/login.html",
                   context={"form":form})
 
+# cart setup
+# ________________
+
 def view(request):
     cart=Cart.objects.all()[0]
     context={"cart":cart}
     template = "cart/view.html"
     return render(request, template,context)
-# cart setup
-# ________________
 
 def update_cart(request, slug):
     cart=Cart.objects.all()[0]
@@ -133,6 +134,12 @@ def update_cart(request, slug):
         cart.products.add(product)
     else:
         cart.products.remove(product)
+    new_total= 0.00
+    for item in cart.products.all():
+        new_total += float(item.price)
+
+    cart.totle = new_total
+    cart.save()
     return HttpResponseRedirect(reverse("cart"))
 
 

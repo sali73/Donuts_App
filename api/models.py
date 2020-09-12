@@ -21,7 +21,6 @@ class Product(models.Model):
         return self.price
     def get_absolute_url(self):
         return reverse("update_view",kwargs={"slug":self.slug})
-
 class Cart(models.Model):
     products = models.ManyToManyField(Product,blank=True)
     totle = models.DecimalField(decimal_places=2 , max_digits=100 , default = 0.00 )
