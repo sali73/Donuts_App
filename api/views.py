@@ -1,9 +1,12 @@
 from django.shortcuts import render , redirect
 from .models import Product
+from django.shortcuts import (get_object_or_404,render,HttpResponseRedirect)
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from .forms import NewUserForm
+from .forms import ProductForm
+
 
 # Create your views here.
 def Index(request):
@@ -38,6 +41,29 @@ def detail_view(request, id):
     context = {}
     context["data"] = Product.objects.get(id=id)
     return render(request, "product/detail_view.html", context)
+
+# update products
+# ____________________
+def update_view(request, id):
+    context = {}
+    obj = get_object_or_404(Product, id=id)
+    form = ProductForm(request.POST or None, instance=obj)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/" + id)
+    context["form"] = form
+    return render(request, "product/update_view.html", context)
+
+
+# delete view for details
+# ______________________________
+def delete_view(request, id):
+    context = {}
+    obj = get_object_or_404(Product, id=id)
+    if request.method == "POST":
+        obj.delete()
+        return HttpResponseRedirect("/")
+    return render(request, "product/delete_view.html", context)
 
 
 # user setup

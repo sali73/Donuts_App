@@ -1,0 +1,10 @@
+{% extends "product/base.html" %}
+{% block contect %}
+<div class="donutsUpdate">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-lg btn-danger"  type="submit" value="Update">
+    </form>
+</div>
+{% endblock %}
