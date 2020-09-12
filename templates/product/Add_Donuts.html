@@ -1,39 +1,50 @@
 {% extends 'product/base.html' %}
 {% block contect %}
-    <div class="addForm">
+    <div style="background-image: url('https://i.imgur.com/H8cSddt.gif');width: 950px;height: 500px;margin-left: 300px;margin-top: 50px;
+    margin-bottom: 50px;padding: 150px;background-repeat: no-repeat;background-size: cover;font-weight: bolder;">
         <form action="/add_donuts_form_submission/" method="post">
             {% csrf_token %}
+
           <div class="form-row">
             <div class="col-md-6 mb-3">
               <label for="validationServer01">Title</label>
-              <input type="text" name="title" placeholder="Title" class="form-control is-valid" id="validationServer01">
+              <input type="text" name="title" placeholder="Title" class="form-control is-valid" >
             </div>
             <div class="col-md-6 mb-3">
               <label for="validationServer02">Price</label>
-              <input type="number" name="price" placeholder="Price" class="form-control is-valid" id="validationServer02" value="Otto">
+              <input type="number" name="price" placeholder="Price" class="form-control is-valid"  >
             </div>
           </div>
+
           <div class="form-row">
             <div class="col-md-6 mb-3">
               <label for="validationServer03">Sale Price</label>
-              <input type="number" name="sale_price" placeholder="sale price" class="form-control is-invalid" id="validationServer03" aria-describedby="validationServer03Feedback" >
+              <input type="number" name="sale_price" placeholder="sale price" class="form-control is-invalid"  >
             </div>
             <div class="col-md-3 mb-3">
               <label for="validationServer04">Image</label>
-                <input type="text" name="image" placeholder="image" class="form-control is-invalid" id="validationServer03" aria-describedby="validationServer03Feedback" >
+                <input type="text" name="image" placeholder="image" class="form-control is-invalid"  >
             </div>
             <div class="col-md-3 mb-3">
-              <label for="validationServer05">Slug</label>
-              <input type="text" name="slug" placeholder="slug" class="form-control is-invalid" id="validationServer05" aria-describedby="validationServer05Feedback" >
+              <label for="validationServer05">Quantity</label>
+              <input type="number" name="qty" placeholder="Quantity" class="form-control is-valid"  >
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-3 mb-3">
+              <label for="validationServer06">Slug</label>
+              <input type="text" name="slug" placeholder="slug" class="form-control is-invalid"  >
             </div>
               <div class="col-md-6 mb-3">
-              <label for="validationServer01">Description</label>
-              <input type="text" name="description" placeholder="Description" class="form-control is-valid" id="validationServer01" >
+              <label for="validationServer07">Description</label>
+              <input type="text" name="description" placeholder="Description" class="form-control is-valid" >
             </div>
               <div style="margin-top:25px; padding-left: 10px">
                   <button class="btn btn-danger btn-lg" type="submit">Add Donuts</button>
               </div>
           </div>
-    </form>
+
+      </form>
     </div>
 {% endblock %}

@@ -14,6 +14,7 @@ class ProductForm(forms.ModelForm):
             "image",
             "slug",
             "description",
+            "qty",
         ]
 
 class NewUserForm(UserCreationForm):

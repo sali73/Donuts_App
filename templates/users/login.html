@@ -1,7 +1,7 @@
 {% extends "product/base.html" %}
 
 {% block contect %}
-    <div class="user-login">
+    <div style="margin: 140px;">
         <form method="POST">
         {% csrf_token %}
         {{form.as_p}}

@@ -1,0 +1,28 @@
+{% extends "product/base.html" %}
+{% block contect %}
+<div class="col-sm-8 col-sm-offset-5">
+    <table class="table">
+        <tr>
+            <th> Product Photo</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+            <th>sale Price</th>
+        </tr>
+        {% for item in cart.products.all %}
+        <tr>
+            <td><img style=" width: 10%" src="{{ item.image }}"></td>
+            <td>{{ item }}</td>
+            <td>{{ item.qty }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.sale_price }}</td>
+        </tr>
+        <tfoot>
+        <tr>
+            <td>Total: {{cart.totle}}</td>
+        </tr>
+        </tfoot>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
