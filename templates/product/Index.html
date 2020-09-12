@@ -15,8 +15,9 @@ background-image: linear-gradient(315deg, #f6ecc4 0%, #f7d4d4 74%); padding:30px
                 <a href="{% url "detail_view" product.id %}"><img src="{{product.image}}" alt="donuts image" /></h3>
             </div>
         <div style="margin-left: 80px">
-            <a class="btn btn-lg btn-danger" href="{% url "update_view" product.id %}">Update</a>
-            <a class="btn btn-lg btn-danger" href="{% url "delete_view" product.id %}">Delete</a>
+            <a class="btn btn-lg btn-danger" href='{% url "update_view" product.id %}'>Update</a>
+            <a class="btn btn-lg btn-danger" href='{% url "delete_view" product.id %}'>Delete</a>
+            <a class="btn btn-lg btn-danger"href='{% url "update_cart" product.slug %}'>add to cart</a>
         </div>
         </div>
     {% endfor %}

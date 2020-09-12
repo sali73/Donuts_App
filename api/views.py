@@ -1,4 +1,4 @@
-from django.shortcuts import render , redirect
+from django.shortcuts import render , redirect , HttpResponseRedirect
 from .models import Product , Cart
 from django.shortcuts import (get_object_or_404,render,HttpResponseRedirect)
 from django.contrib.auth.forms import AuthenticationForm
@@ -6,7 +6,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from .forms import NewUserForm
 from .forms import ProductForm
-
+from django.urls import reverse
 
 
 # Create your views here.
@@ -121,11 +121,21 @@ def view(request):
 # cart setup
 # ________________
 
-# def add_to_cart(request, product_id, quantity):
-#     product = Product.objects.get(id=product_id)
-#     cart = Cart(request)
-#     cart.add(product, product.unit_price, quantity)
-#
+def update_cart(request, slug):
+    cart=Cart.objects.all()[0]
+    try:
+        product = Product.objects.get(slug=slug)
+    except Product.DoesNotExist:
+        pass
+    except:
+        pass
+    if not product in cart.products.all():
+        cart.products.add(product)
+    else:
+        cart.products.remove(product)
+    return HttpResponseRedirect(reverse("cart"))
+
+
 # def remove_from_cart(request, product_id):
 #     product = Product.objects.get(id=product_id)
 #     cart = Cart(request)

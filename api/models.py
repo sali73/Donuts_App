@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Product(models.Model):
@@ -12,10 +13,14 @@ class Product(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True , null=True)
     update = models.DateTimeField(auto_now=True, null=True)
     active = models.BooleanField(default=True)
-    def __str__(self):
+    def __unicode__(self):
         return self.title
+    class Meta:
+        unique_together = ('title' , 'slug')
     def get_price(self):
         return self.price
+    def get_absolute_url(self):
+        return reverse("update_view",kwargs={"slug":self.slug})
 
 class Cart(models.Model):
     products = models.ManyToManyField(Product,blank=True)
