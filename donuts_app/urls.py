@@ -18,8 +18,6 @@ from django.contrib.auth import views as auth_views
 from django.urls import include, path
 from api import views
 
-
-
 app_name = 'api'
 urlpatterns = [
     path('', include('api.urls')),
@@ -31,7 +29,7 @@ urlpatterns = [
     path("register/", views.register, name="register"),
     path("logout/", auth_views.LogoutView.as_view(template_name='users/login.html'), name="logout"),
     path("login/", auth_views.LoginView.as_view(template_name='users/logout.html'), name="login"),
-    path('<id>', views.detail_view , name = "detail_view"),
+    path('<id>', views.detail_view , name= "detail_view"),
     path('<id>/update', views.update_view , name="update_view"),
     path('<id>/delete', views.delete_view , name= "delete_view"),
     path('cart/', views.view, name="cart"),

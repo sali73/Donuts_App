@@ -26,6 +26,7 @@
           <li><a href="{% url 'register' %}">Register</a></li>
             <li><a href="{% url 'login' %}">Login</a></li>
             <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'cart' %}"><img src="https://icons.iconarchive.com/icons/graphicloads/polygon/48/shopping-cart-icon.png"><small>{{request.session.items_total}}</small></a></li>
         </ul>
 
   </nav>

@@ -1,21 +1,23 @@
 {% extends "product/base.html" %}
 {% block contect %}
+
 <div class="col-sm-8 col-sm-offset-5">
+{% if empty %}
+<h1> style="text-align: center">{{ empty_message }}</h1>
+{% else %}
+
     <table class="table">
         <tr>
             <th> Product Photo</th>
             <th>Product</th>
-            <th>Quantity</th>
             <th>Total Price</th>
-            <th>sale Price</th>
         </tr>
         {% for item in cart.products.all %}
         <tr>
-            <td><img style=" width: 20%" src="{{ item.image }}"></td>
+            <td><img style=" width: 30%" src="{{ item.image }}"></td>
             <td>{{ item.title }}</td>
-            <td>{{ item.qty }}</td>
             <td>{{ item.price }}</td>
-            <td>{{ item.sale_price }}</td>
+            <td><a href="{% url 'update_cart' item.slug %}"><img src="https://icons.iconarchive.com/icons/custom-icon-design/mono-general-1/32/delete-icon.png"></a></td>
         </tr>
         {% endfor %}
         <tfoot>
@@ -25,5 +27,7 @@
         </tfoot>
 
     </table>
-</div>
+
+{% endif %}
+    </div>
 {% endblock %}

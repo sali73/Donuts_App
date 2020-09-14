@@ -1,5 +1,6 @@
 *{
     font-family: 'Quicksand', sans-serif;
+    color: brown,
 }
 nav{
     display: flex;
@@ -31,7 +32,7 @@ ul li a{
     background-size: cover;
 }
 .productsImg img{
-    width: 180px;
+    width: 150px;
     border-radius: 50%;
     padding-bottom: 19px;
 }

@@ -22,26 +22,33 @@ def AddDonuts(request):
     return  render (request,"product/Add_Donuts.html")
 
 
-# index views
+# add
 # ---------------
 def add_donuts_form_submission(request):
     print('hello form is submitted')
     title = request.POST['title']
     price = request.POST['price']
-    sale_price = request.POST['sale_price']
     image = request.POST['image']
     slug = request.POST['slug']
     description = request.POST['description']
-    product = Product(title=title,price=price,sale_price=sale_price,image=image,slug=slug,description=description)
+    qty = request.POST['qty']
+    product = Product(title=title,price=price,image=image,slug=slug,description=description,qty=qty)
     product.save()
     return render(request,"product/Add_Donuts.html")
 
-# create a view
+# detail
 # --------------------
-def detail_view(request, id):
-    context = {}
-    context["data"] = Product.objects.get(id=id)
-    return render(request, "product/detail_view.html", context)
+# def detail_view(request, id):
+#     context = {}
+#     context["data"] = Product.objects.get(id = id)
+#     return render(request, "product/detail_view.html", context)
+
+def detail_view(request,id):
+    print (id)
+    products = Product.objects.all()
+    context = {"data":products}
+    template = "product/detail_view.html"
+    return render(request,template , context)
 
 # update products
 # ____________________
@@ -51,10 +58,9 @@ def update_view(request, id):
     form = ProductForm(request.POST or None, instance=obj)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("/" + id)
+        return HttpResponseRedirect("/index/")
     context["form"] = form
     return render(request, "product/update_view.html", context)
-
 
 # delete view for details
 # ______________________________
@@ -63,9 +69,8 @@ def delete_view(request, id):
     obj = get_object_or_404(Product, id=id)
     if request.method == "POST":
         obj.delete()
-        return HttpResponseRedirect("/")
+        return HttpResponseRedirect("/index/")
     return render(request, "product/delete_view.html", context)
-
 
 # user setup
 # ---------------
@@ -115,15 +120,30 @@ def login_request(request):
 
 # cart setup
 # ________________
-
 def view(request):
-    cart=Cart.objects.all()[0]
-    context={"cart":cart}
+    try:
+        the_id = request.session['cart_id']
+    except:
+        the_id = None
+    if the_id:
+        cart=Cart.objects.get(id=the_id)
+        context={"cart":cart}
+    else:
+        empty_message = ' Your Cart is Empty, Please Keep Shpping.'
+        context={"empty":True, "empty_message": empty_message}
     template = "cart/view.html"
     return render(request, template,context)
 
 def update_cart(request, slug):
-    cart=Cart.objects.all()[0]
+    request.session.set_expiry(3000000)
+    try:
+        the_id = request.session['cart_id']
+    except:
+        new_cart = Cart()
+        new_cart.save()
+        request.session['cart_id'] = new_cart.id
+        the_id = new_cart.id
+    cart = Cart.objects.get(id=the_id)
     try:
         product = Product.objects.get(slug=slug)
     except Product.DoesNotExist:
@@ -138,15 +158,7 @@ def update_cart(request, slug):
     for item in cart.products.all():
         new_total += float(item.price)
 
+    request.session['items_total'] = cart.products.count()
     cart.totle = new_total
     cart.save()
     return HttpResponseRedirect(reverse("cart"))
-
-
-# def remove_from_cart(request, product_id):
-#     product = Product.objects.get(id=product_id)
-#     cart = Cart(request)
-#     cart.remove(product)
-#
-# def get_cart(request):
-#     return render(request, 'cart.html', {'cart': Cart(request)})

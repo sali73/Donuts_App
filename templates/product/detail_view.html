@@ -7,11 +7,7 @@
         <div>
             <h3>Donuts Name: {{ data.title }}</h3>
             <h4 style="font-weight: bolder;">Price: {{ data.price }}</h4>
-            <h4 style="font-weight: bolder">Sale Price: {{ data.sale_price }}</h4>
-            <h4>Quantity: {{data.qty}}</h4>
             <h5>Description: {{ data.description}}</h5>
-            <a class="btn btn-lg btn-danger"href='{% url "update_cart" product.slug %}'>add to cart</a>
-
         </div>
     </div>
 {% endblock %}
