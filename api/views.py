@@ -45,7 +45,7 @@ def add_donuts_form_submission(request):
 
 def detail_view(request,id):
     print (id)
-    products = Product.objects.all()
+    products = Product.objects.get(id=id)
     context = {"data":products}
     template = "product/detail_view.html"
     return render(request,template , context)
