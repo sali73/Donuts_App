@@ -1,6 +1,6 @@
 {% extends 'product/base.html' %}
 {% block contect %}
-    <div style="width: 1438px;height: 400px;background-image: url('https://i.imgur.com/EeSYuQV.jpg');background-repeat: no-repeat;background-size: cover;" class=" headerImage" ></div>
+    <div style="width: 1438px;height: 400px;background-image: url('https://bunnybryna.github.io/img/pinkDonut.jpg');background-repeat: no-repeat;background-size: cover;" class=" headerImage" ></div>
     {% for product in Product %}
         <div class="productsList" style="color:rgb(109,56,73) ;
         border-bottom: palevioletred 1px solid ;margin-bottom: 10px;margin-top: 10px ;background-color: #f6ecc4;
@@ -10,8 +10,8 @@ background-image: linear-gradient(315deg, #f6ecc4 0%, #f7d4d4 74%); padding:30px
                 <a href="{% url 'detail_view' product.id %}"><img style=" width: 150px;border-radius: 50%;padding-bottom: 19px;" src="{{product.image}}" alt="donuts image" />
             </div>
             <div style="margin-left: 80px;">
-                <a href="{% url 'detail_view' product.id %}"> <h3>Donuts Name: <b> {{product.title}}</b> </h3></a><br/>
-                <h3>Price: ${{product.price}}</h3>
+                <a href="{% url 'detail_view' product.id %}"> <h3 style="color: brown;font-weight: bolder">Donuts Name: <b> {{product.title}}</b> </h3></a><br/>
+                <h3 style="color: brown;">Price: ${{product.price}}</h3>
                 <a href="{% url 'update_view' product.id %}"><img src="https://icons.iconarchive.com/icons/icons8/windows-8/32/Editing-Edit-icon.png"></a>
                 <a href="{% url 'delete_view' product.id %}"><img style="padding-left:10px" src="https://icons.iconarchive.com/icons/custom-icon-design/mono-general-1/32/delete-icon.png"></a>
                 <a href="{% url 'update_cart' product.slug %}"><img style="padding-left:10px"  src="https://icons.iconarchive.com/icons/custom-icon-design/pretty-office-11/64/buy-now-icon.png"></a>

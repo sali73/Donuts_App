@@ -23,10 +23,10 @@
             <li style=" padding-left: 20px;font-size: x-large;" ><a style="color: brown;" href="{% url 'add' %}"><h4 style="padding-top: 10px">Add Donuts</h4></a></li>
         </ul>
         <ul style=" list-style: none;display: flex;padding-right: 20px;" class="user-sidebar-nav" >
-          <li><a href="{% url 'register' %}"><h5 style="padding-top: 10px">Register</h5></a></li>
-            <li><a href="{% url 'login' %}"><h5 style="padding-top: 10px">Login</h5></a></li>
-            <li><a href="{% url 'logout' %}"><h5 style="padding-top: 10px">Logout</h5></a></li>
-            <li><a href="{% url 'cart' %}"><img  src="https://icons.iconarchive.com/icons/graphicloads/polygon/48/shopping-cart-icon.png"><small>{{request.session.items_total}}</small></a></li>
+          <li><a href="{% url 'register' %}"><h5 style="padding-top: 10px; color: brown; font-size: x-large">Register</h5></a></li>
+            <li><a href="{% url 'login' %}"><h5 style="padding-top: 10px; padding-left: 10px; padding-top: 10px; color:brown; font-size: x-large">Login</h5></a></li>
+            <li><a href="{% url 'logout' %}"><h5 style="padding-top: 10px; padding-left: 10px;padding-top: 10px; color: brown; font-size: x-large">Logout</h5></a></li>
+            <li><a href="{% url 'cart' %}"><img style="padding-left: 10px" src="https://icons.iconarchive.com/icons/graphicloads/polygon/48/shopping-cart-icon.png"><small>{{request.session.items_total}}</small></a></li>
         </ul>
   </nav>
   <header>
@@ -52,7 +52,6 @@
   </a>
 </div>
   </header>
-
   <div>
     {% if messages %}
         {% for message in messages  %}
@@ -60,12 +59,12 @@
         {% endfor %}
     {% endif %}
   </div>
-
-{% block contect %}
- {% endblock %}
-
+  <div style="font-family: 'Times New Roman'">
+      {% block contect %}
+       {% endblock %}
+  </div>
   <footer style="display: flex;background-color: #eec0c6;background-image: linear-gradient(315deg, #eec0c6 0%, #e58c8a 74%); height: 130px;color: brown;" class="foot">
-     <img style="width: 9%; margin-left:10%;border-radius: 50%;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQHUzSwRb_fiziyfhzKDZOiOA-nOhjeMo6Xw&usqp=CAU" alt="icon">
+     <img style="width: 10%;height: 90%;padding-top: 20px; margin-left:10%;border-radius: 50%;" src="https://icons.iconarchive.com/icons/pixelkit/tasty-bites/128/donuts-icon.png" alt="icon">
       <ul style=" list-style: none;font-size: 1.3em;padding-left: 25%;padding-top: 20px;">
           <li>About Us</li>
           <li> FAQ</li>
@@ -79,6 +78,9 @@
               <li style="list-style: none;display: inline;padding-left: 10px;padding-bottom: 20px;"><a href='https://www.facebook.com/'><img src= 'https://iconarchive.com/icons/designbolts/pink-girly-social/24/Active-Facebook-icon.png' alt = ''/></a></li>
           </ul>
   </footer>
+  <div style=" color: #ffefef; font-weight: bolder ; font-size: x-large ; height: 60px; background-color: #eec0c6;
+background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
+; text-align: center;padding: 20px 0px; font-family: cursive">@2020 by <a href="https://salimohamed.me/">Sali Mohamed</a></div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

@@ -1,14 +1,16 @@
 {% extends "product/base.html" %}
 {% block contect %}
-    <div class="donutsShow">
+ <div style=""><a href="{% url 'index' %}"><img src="https://icons.iconarchive.com/icons/custom-icon-design/flatastic-1/64/back-icon.png"></a></div>
+
+    <div style="text-align: center; color: brown; margin-bottom: 100px" class="donutsShow">
         <div>
-           <img style="width: 20%;text-align: center;margin: 80px;color: brown;" src="{{ data.image}}" alt="product imge">
+           <img style="width: 20%;text-align: center;color: brown;" src="{{ data.image}}" alt="product imge">
         </div>
-        <div style="margin-bottom: 160px;">
+        <div style="margin-bottom: 60px;">
             <h3>Donuts Name: {{ data.title }}</h3>
             <h4 style="font-weight: bolder;">Price: {{ data.price }}</h4>
             <h4 style="font-weight: bolder;">Qty: {{ data.qty}}</h4>
-            <h5 style="margin-top: 100px">Description: <small style="padding:50px; border:2px solid #e58c8a">{{ data.description}}</small></h5>
+            <h5 style="margin-top: 80px">Description: <small style="padding:50px; border:2px solid #e58c8a">{{ data.description}}</small></h5>
 
         </div>
     </div>

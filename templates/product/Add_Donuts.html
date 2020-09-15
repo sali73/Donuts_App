@@ -1,6 +1,7 @@
 {% extends 'product/base.html' %}
 {% block contect %}
-    <div style="background-image: url('https://i.imgur.com/H8cSddt.gif');width: 70%;height: 70%;margin-left:13%;margin-top: 50px;
+ <div style=""><a href="{% url 'home' %}"><img src="https://icons.iconarchive.com/icons/custom-icon-design/flatastic-1/64/back-icon.png"></a></div>
+    <div style="background-image: url('https://i.imgur.com/H8cSddt.gif');width: 70%;height: 70%;margin-left:13%;margin-top: 10px;
     margin-bottom: 50px;padding: 150px;background-repeat: no-repeat;background-size: cover;font-weight: bolder;">
         <form action="/add_donuts_form_submission/" method="post">
             {% csrf_token %}
