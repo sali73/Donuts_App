@@ -15,10 +15,9 @@
     {% endif %}
 </head>
 <body>
-  <nav  style="display: flex;padding-top: 15px;background-color: #eec0c6;background-image: linear-gradient(315deg, #eec0c6 0%, #e58c8a 74%);;background-color: palevioletred;justify-content: space-between;">
+  <nav  style=" width: 100%;flex-wrap:wrap; display: flex;padding-top: 15px;background-color: #eec0c6;background-image: linear-gradient(315deg, #eec0c6 0%, #e58c8a 74%);background-color: palevioletred;justify-content: space-between;">
         <ul class="sidebar-nav" style=" justify-content: space-between;list-style: none;display: flex;">
-            <li style=" font-family: 'Apple Chancery';padding-left: 20px;font-size: x-large;"><h1 style="color: #ffefef; font-weight: bolder;
-             font-size:2.6rem"> Donuts</h1></li>
+            <li style=" font-family: 'Apple Chancery';padding-left: 20px;font-size: x-large;"><h1 style="color: #ffefef; font-weight: bolder;font-size:2.6rem"> Donuts</h1></li>
             <li style=" padding-left: 20px;font-size: x-large;" ><a  style="color: brown;" href="{% url 'home' %}"><h4 style="padding-top: 10px">Home</h4></a></li>
             <li style=" padding-left: 20px;font-size: x-large;" ><a style="color: brown;" href="{% url 'index' %}"><h4 style="padding-top: 10px">Menu</h4></a></li>
             <li style=" padding-left: 20px;font-size: x-large;" ><a style="color: brown;" href="{% url 'add' %}"><h4 style="padding-top: 10px">Add Donuts</h4></a></li>
@@ -64,15 +63,15 @@
       {% block contect %}
        {% endblock %}
   </div>
-  <footer style="display: flex;background-color: #eec0c6;background-image: linear-gradient(315deg, #eec0c6 0%, #e58c8a 74%); height: 130px;color: brown;" class="foot">
-     <img style="width: 10%;height: 90%;padding-top: 20px; margin-left:10%;border-radius: 50%;" src="https://icons.iconarchive.com/icons/pixelkit/tasty-bites/128/donuts-icon.png" alt="icon">
-      <ul style=" list-style: none;font-size: 1.3em;padding-left: 25%;padding-top: 20px;">
+  <footer style="display: flex;flex-wrap: wrap;background-color: #eec0c6;background-image: linear-gradient(315deg, #eec0c6 0%, #e58c8a 74%); height: auto;color: brown;" class="foot">
+     <img style=" width: 10%;border-radius: 50%;" src="https://icons.iconarchive.com/icons/pixelkit/tasty-bites/128/donuts-icon.png" alt="icon">
+      <ul style=" list-style: none;font-size: 1.3em;justify-content: center;padding-top: 40px;">
           <li>About Us</li>
           <li> FAQ</li>
           <li> Privacy Policy</li>
       </ul>
       <div>
-          <ul class="footIcon" style="display: flex;padding-left:200%;padding-top: 40px;list-style: none;font-size: 1.3em;text-align: right;">
+          <ul class="footIcon" style="display: flex;list-style: none;font-size: 1.3em; justify-content: right">
               <li style="list-style: none;display: inline;padding-left: 10px;padding-bottom: 20px;"> <a  href='https://www.hotmail.com'><img src= 'https://iconarchive.com/icons/custom-icon-design/mono-general-2/24/mail-icon.png' alt = ''/></a></li>
               <li style="list-style: none;display: inline;padding-left: 10px;padding-bottom: 20px;"> <a  href='https://www.linkedin.com/in/sali-m-aa7a95b4/' ><img src= 'https://iconarchive.com/icons/graphics-vibe/purple-glossy-social/24/linkedin-icon.png' alt = ''/></a> </li>
               <li style="list-style: none;display: inline;padding-left: 10px;padding-bottom: 20px;"><a href='https://github.com/sali73'><img src= 'https://iconarchive.com/icons/limav/flat-gradient-social/24/Github-icon.png' alt = ''/></a></li>
