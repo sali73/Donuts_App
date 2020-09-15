@@ -17,41 +17,66 @@
 <body>
   <nav  style="background-color: palevioletred;justify-content: space-between;">
         <ul class="sidebar-nav" style="justify-content: space-between;">
-            <li><h2 style="color: brown; font-weight: bolder ; font-size: xx-large"> Donuts</h2></li>
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'index' %}">Menu</a></li>
-            <li><a href="{% url 'add' %}">Add Donuts</a></li>
+            <li><h1 style="color: #ffefef; font-weight: bolder ; font-size: xx-large"> Donuts</h1></li>
+            <li><a href="{% url 'home' %}"><h4 style="padding-top: 10px">Home</h4></a></li>
+            <li><a href="{% url 'index' %}"><h4 style="padding-top: 10px">Menu</h4></a></li>
+            <li><a href="{% url 'add' %}"><h4 style="padding-top: 10px">Add Donuts</h4></a></li>
         </ul>
         <ul class="user-sidebar-nav" >
-          <li><a href="{% url 'register' %}">Register</a></li>
-            <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-            <li><a href="{% url 'cart' %}"><img src="https://icons.iconarchive.com/icons/graphicloads/polygon/48/shopping-cart-icon.png"><small>{{request.session.items_total}}</small></a></li>
+          <li><a href="{% url 'register' %}"><h5 style="padding-top: 10px">Register</h5></a></li>
+            <li><a href="{% url 'login' %}"><h5 style="padding-top: 10px">Login</h5></a></li>
+            <li><a href="{% url 'logout' %}"><h5 style="padding-top: 10px">Logout</h5></a></li>
+            <li><a href="{% url 'cart' %}"><img  src="https://icons.iconarchive.com/icons/graphicloads/polygon/48/shopping-cart-icon.png"><small>{{request.session.items_total}}</small></a></li>
         </ul>
-
   </nav>
+  <header>
+      <div style="height: 50px; text-align: center; background-color: #ffefef;padding-top: 10px; color: #e58c8a " id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <h5> Welcome To Donuts Lover Application!  </h5>
+    </div>
+    <div class="carousel-item">
+      <h5>Free Delivery Orders Over $35</h5>
+    </div>
+      <div class="carousel-item">
+      <h5> This Is Not Real Website </h5>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+  </header>
+
   <div>
     {% if messages %}
         {% for message in messages  %}
             <div class="alert alert-danger alert-{{ message.tags }}" role="alert">{{ message }}</div>
         {% endfor %}
     {% endif %}
-</div>
+  </div>
+
 {% block contect %}
  {% endblock %}
-  <footer class="foot">
-     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQHUzSwRb_fiziyfhzKDZOiOA-nOhjeMo6Xw&usqp=CAU" alt="icon">
-      <ul>
+
+  <footer style="display: flex;background-color: #eec0c6;background-image: linear-gradient(315deg, #eec0c6 0%, #e58c8a 74%); height: 130px;color: brown;" class="foot">
+     <img style="width: 9%; margin-left:10%;border-radius: 50%;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQHUzSwRb_fiziyfhzKDZOiOA-nOhjeMo6Xw&usqp=CAU" alt="icon">
+      <ul style=" list-style: none;font-size: 1.3em;padding-left: 25%;padding-top: 20px;">
           <li>About Us</li>
           <li> FAQ</li>
           <li> Privacy Policy</li>
       </ul>
       <div>
-          <ul class="footIcon" style="display: flex;">
-              <li> <a  href='https://www.hotmail.com'><img src= 'https://iconarchive.com/icons/custom-icon-design/mono-general-2/24/mail-icon.png' alt = ''/></a></li>
-              <li> <a  href='https://www.linkedin.com/in/sali-m-aa7a95b4/' ><img src= 'https://iconarchive.com/icons/graphics-vibe/purple-glossy-social/24/linkedin-icon.png' alt = ''/></a> </li>
-              <li> <a  href='https://github.com/sali73'><img src= 'https://iconarchive.com/icons/limav/flat-gradient-social/24/Github-icon.png' alt = ''/></a></li>
-              <li> <a  href='https://www.facebook.com/'><img src= 'https://iconarchive.com/icons/designbolts/pink-girly-social/24/Active-Facebook-icon.png' alt = ''/></a></li>
+          <ul class="footIcon" style="display: flex;padding-left:200%;padding-top: 40px;list-style: none;font-size: 1.3em;text-align: right;">
+              <li style="list-style: none;display: inline;padding-left: 10px;padding-bottom: 20px;"> <a  href='https://www.hotmail.com'><img src= 'https://iconarchive.com/icons/custom-icon-design/mono-general-2/24/mail-icon.png' alt = ''/></a></li>
+              <li style="list-style: none;display: inline;padding-left: 10px;padding-bottom: 20px;"> <a  href='https://www.linkedin.com/in/sali-m-aa7a95b4/' ><img src= 'https://iconarchive.com/icons/graphics-vibe/purple-glossy-social/24/linkedin-icon.png' alt = ''/></a> </li>
+              <li style="list-style: none;display: inline;padding-left: 10px;padding-bottom: 20px;"><a href='https://github.com/sali73'><img src= 'https://iconarchive.com/icons/limav/flat-gradient-social/24/Github-icon.png' alt = ''/></a></li>
+              <li style="list-style: none;display: inline;padding-left: 10px;padding-bottom: 20px;"><a href='https://www.facebook.com/'><img src= 'https://iconarchive.com/icons/designbolts/pink-girly-social/24/Active-Facebook-icon.png' alt = ''/></a></li>
           </ul>
   </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

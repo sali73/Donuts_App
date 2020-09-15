@@ -2,12 +2,14 @@
 {% block contect %}
     <div class="donutsShow">
         <div>
-           <img src="{{ data.image}}" alt="product imge">
+           <img style="width: 20%" src="{{ data.image}}" alt="product imge">
         </div>
-        <div>
+        <div style="margin-bottom: 160px;">
             <h3>Donuts Name: {{ data.title }}</h3>
             <h4 style="font-weight: bolder;">Price: {{ data.price }}</h4>
-            <h5>Description: {{ data.description}}</h5>
+            <h4 style="font-weight: bolder;">Qty: {{ data.qty}}</h4>
+            <h5 style="margin-top: 100px">Description: <small style="padding:50px; border:2px solid #e58c8a">{{ data.description}}</small></h5>
+
         </div>
     </div>
 {% endblock %}
