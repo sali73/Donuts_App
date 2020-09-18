@@ -11,6 +11,7 @@ from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
+@login_required(login_url='login')
 def Index(request):
     product = [*Product.objects.all()]
     print(Product)
@@ -20,9 +21,9 @@ def Index(request):
 def Home(request):
     return render(request,'product/Home.html')
 
+@login_required(login_url='login')
 def AddDonuts(request):
     return  render (request,"product/Add_Donuts.html")
-
 
 # add
 # ---------------
@@ -77,7 +78,6 @@ def register(request):
             username = form.cleaned_data.get("username")
             messages.success(request, f"New Account Created: {username}")
             login(request, user)
-            messages.info(request, f"You Are Now Logged In As: {username}")
             return redirect("api:home")
         else:
             for msg in form.error_messages:

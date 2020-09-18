@@ -1,23 +1,23 @@
 {% extends "product/base.html" %}
 
 {% block contect %}
-    <div style="margin: 50px 0px 50px 90px; ">
-        <form method="POST">
-        {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Join Today</legend>
-                {{ form.as_p}}
-            </fieldset>
+    <div style="background-image: url('https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimg1.cookinglight.timeinc.net%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fmedium_2x%2Fpublic%2Fimage%2F2017%2F01%2Fmain%2Fmatcha-glazed-donuts.jpg%3Fitok%3DpXdFh2N6');background-repeat: no-repeat;background-size: cover ; color: brown">
+        <div style=" padding: 30px 60px; width: 55%; height: 70%" >
+            <form method="POST">
+            {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4"><h2>Join Today</h2></legend>
+                    <h5>{{ form.as_p}}</h5>
+                </fieldset>
+                <div>
+                    <button class="btn btn-danger btn-lg"  type="submit">Sing Up</button>
+                </div>
+            </form>
             <div>
-                <button class="btn btn-outline-info" type="submit">Sing Up</button>
+                <small class="text-muted">
+                    If you already have an acount? <a class="ml-2" href="/login" ><strong>Sing In</strong></a>
+                </small>
             </div>
-        </form>
-        <div>
-            <small class="text-muted">
-                If you already have an acount? <a class="ml-2" href="/login" ><strong>Sing In</strong></a>
-            </small>
         </div>
-
     </div>
-
 {% endblock %}
