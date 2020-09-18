@@ -7,6 +7,7 @@ from django.contrib import messages
 from .forms import NewUserForm
 from .forms import ProductForm
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -15,6 +16,7 @@ def Index(request):
     print(Product)
     return render(request,'product/Index.html' , {"Product": product})
 
+@login_required(login_url='login')
 def Home(request):
     return render(request,'product/Home.html')
 
@@ -35,13 +37,6 @@ def add_donuts_form_submission(request):
     product = Product(title=title,price=price,image=image,slug=slug,description=description,qty=qty)
     product.save()
     return render(request,"product/Add_Donuts.html")
-
-# detail
-# --------------------
-# def detail_view(request, id):
-#     context = {}
-#     context["data"] = Product.objects.get(id = id)
-#     return render(request, "product/detail_view.html", context)
 
 def detail_view(request,id):
     print (id)
@@ -107,7 +102,7 @@ def login_request(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.info(request, f"You are now logged in as {username}")
+                messages.info(request, f"Welcome back {username}")
                 return redirect('/')
             else:
                 messages.error(request, "Invalid username or password.")

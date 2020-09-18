@@ -23,7 +23,7 @@
             <li style=" padding-left: 20px;font-size: x-large;" ><a style="color: brown;" href="{% url 'add' %}"><h4 style="padding-top: 10px">Add Donuts</h4></a></li>
         </ul>
         <ul style=" list-style: none;display: flex;padding-right: 20px;" class="user-sidebar-nav" >
-          <li><a href="{% url 'register' %}"><h5 style="padding-top: 10px; color: brown; font-size: x-large">Register</h5></a></li>
+            <li><a href="{% url 'register' %}"><h5 style="padding-top: 10px; color: brown; font-size: x-large">Register</h5></a></li>
             <li><a href="{% url 'login' %}"><h5 style="padding-top: 10px; padding-left: 10px; padding-top: 10px; color:brown; font-size: x-large">Login</h5></a></li>
             <li><a href="{% url 'logout' %}"><h5 style="padding-top: 10px; padding-left: 10px;padding-top: 10px; color: brown; font-size: x-large">Logout</h5></a></li>
             <li><a href="{% url 'cart' %}"><img style="padding-left: 10px" src="https://icons.iconarchive.com/icons/graphicloads/polygon/48/shopping-cart-icon.png"><small>{{request.session.items_total}}</small></a></li>
