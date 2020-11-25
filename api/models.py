@@ -14,7 +14,7 @@ class Product(models.Model):
 
 
 class CartItem(models.Model):
-    product = models.ForeginKey(Product)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     qty = models.IntegerField(default='1')
 
     def __unicode__(self):
