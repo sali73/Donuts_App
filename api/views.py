@@ -1,5 +1,5 @@
 from django.shortcuts import render , redirect , HttpResponseRedirect
-from .models import Product , Cart
+from .models import Product , Cart , CartItem
 from django.shortcuts import (get_object_or_404,render,HttpResponseRedirect)
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
@@ -121,10 +121,10 @@ def view(request):
     except:
         the_id = None
     if the_id:
-        cart=Cart.objects.get(id=the_id)
+        cart = Cart.objects.get(id=the_id)
         context={"cart":cart}
     else:
-        empty_message = ' Your Cart is Empty, Please Keep Shpping.'
+        empty_message = ' Your Cart is Empty, Please Keep Shopping.'
         context={"empty":True, "empty_message": empty_message}
     template = "cart/view.html"
     return render(request, template,context)
@@ -146,15 +146,20 @@ def update_cart(request, slug):
         pass
     except:
         pass
-    if not product in cart.products.all():
-        cart.products.add(product)
-    else:
-        cart.products.remove(product)
-    new_total= 0.00
-    for item in cart.products.all():
-        new_total += float(item.price)
 
-    request.session['items_total'] = cart.products.count()
+    cart_item, created = CartItem.objects.get_or_create(product=product)
+    if created:
+        print("yeah")
+    if not cart_item in cart.items.all():
+        cart.items.add(cart_item)
+    else:
+        cart.items.remove(cart_item)
+    new_total= 0.00
+    for item in cart.items.all():
+        line_total = float(item.product.price) * item.qty
+        new_total += line_total
+
+    request.session['items_total'] = cart.items.count()
     cart.totle = new_total
     cart.save()
     return HttpResponseRedirect(reverse("cart"))

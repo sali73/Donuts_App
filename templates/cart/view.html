@@ -13,18 +13,18 @@
                 <th>Qty</th>
                 <th>Total Price</th>
             </tr>
-            {% for item in cart.products.all %}
+            {% for item in cart.items.all %}
             <tr>
-                <td><img style=" width: 20%" src="{{ item.image }}"></td>
-                <td>{{ item.title }}</td>
-                <td>{{ item.qty }}</td>
-                <td>{{ item.price }}</td>
-                <td><a href="{% url 'update_cart' item.slug %}"><img src="https://icons.iconarchive.com/icons/custom-icon-design/mono-general-1/32/delete-icon.png"></a></td>
+                <td><img style=" width: 20%" src="{{ item.product.image }}"></td>
+                <td>{{ item.product.title }}</td>
+                <td>{{ item.product.qty }}</td>
+                <td>{{ item.product.price }}</td>
+                <td><a href="{% url 'update_cart' item.product.slug %}"><img src="https://icons.iconarchive.com/icons/custom-icon-design/mono-general-1/32/delete-icon.png"></a></td>
             </tr>
             {% endfor %}
             <tfoot>
             <tr>
-                <td>Total: {{cart.totle}}</td>
+                <td>Total: {{cart.total}}</td>
             </tr>
             </tfoot>
 

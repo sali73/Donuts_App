@@ -26,7 +26,7 @@
             <li><a href="{% url 'register' %}"><h5 style="padding-top: 10px; color: brown; font-size: x-large">Register</h5></a></li>
             <li><a href="{% url 'login' %}"><h5 style="padding-top: 10px; padding-left: 10px; padding-top: 10px; color:brown; font-size: x-large">Login</h5></a></li>
             <li><a href="{% url 'logout' %}"><h5 style="padding-top: 10px; padding-left: 10px;padding-top: 10px; color: brown; font-size: x-large">Logout</h5></a></li>
-            <li><a href="{% url 'cart' %}"><img style="padding-left: 10px" src="https://icons.iconarchive.com/icons/graphicloads/polygon/48/shopping-cart-icon.png"><small>{{request.session.items_total}}</small></a></li>
+            <li><a href="{% url 'cart' %}"><img style="padding-left: 10px" src="https://icons.iconarchive.com/icons/graphicloads/polygon/48/shopping-cart-icon.png"><small>{% if not request.session.items_total %}0 {% else %} {{ request.session.items_total }} {% endif%}</small></a></li>
         </ul>
   </nav>
   <header>
