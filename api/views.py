@@ -130,6 +130,7 @@ def view(request):
     return render(request, template,context)
 
 def update_cart(request, slug):
+    global product
     request.session.set_expiry(3000000)
     try:
         the_id = request.session['cart_id']
