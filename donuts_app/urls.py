@@ -18,6 +18,8 @@ from django.contrib.auth import views as auth_views
 from django.urls import include, path
 from api import views
 
+from Donuts_App import api
+
 app_name = 'api'
 urlpatterns = [
     path('', include('api.urls')),
@@ -33,7 +35,7 @@ urlpatterns = [
     path('<id>/update', views.update_view , name="update_view"),
     path('<id>/delete', views.delete_view , name= "delete_view"),
     path('cart/', views.view, name="cart"),
-    path('<slug>/cart', views.update_cart, name="update_cart"),
+    path('cart/(?P<slug>[^/]+)', api.views.update_cart, name="update_cart"),
 
 ]
 
