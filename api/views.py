@@ -1,5 +1,5 @@
 from django.shortcuts import render , redirect , HttpResponseRedirect
-from .models import Product , Cart , CartItem
+from .models import Product , Cart
 from django.shortcuts import (get_object_or_404,render,HttpResponseRedirect)
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
@@ -146,20 +146,15 @@ def update_cart(request, slug):
         pass
     except:
         pass
-
-    cart_item, created = CartItem.objects.get_or_create(product=product)
-    if created:
-        print("yeah")
-    if not cart_item in cart.items.all():
-        cart.items.add(cart_item)
+    if not product in cart.products.all():
+        cart.products.add(product)
     else:
-        cart.items.remove(cart_item)
+        cart.products.remove(product)
     new_total= 0.00
-    for item in cart.items.all():
-        line_total = float(item.product.price) * item.qty
-        new_total += line_total
+    for item in cart.products.all():
+        new_total += float(item.price)
 
-    request.session['items_total'] = cart.items.count()
+    request.session['items_total'] = cart.products.count()
     cart.totle = new_total
     cart.save()
     return HttpResponseRedirect(reverse("cart"))
