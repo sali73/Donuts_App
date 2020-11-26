@@ -10,13 +10,7 @@ class Product(models.Model):
     description = models.TextField(null=True, blank=True)
     qty = models.IntegerField(default='0')
 
-    def get_absolute_url(self):
-        return "/products/{slug}/".format(slug=self.slug)
-
     def __str__(self):
-        return self.title
-
-    def __unicode__(self):
         return self.title
 
 
