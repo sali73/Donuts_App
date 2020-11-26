@@ -13,7 +13,9 @@ background-image: linear-gradient(315deg, #f6ecc4 0%, #f7d4d4 74%); padding:30px
                 <h3 style="color: brown;">Price: ${{product.price}}</h3>
                 <a href="{% url 'update_view' product.id %}"><img src="https://icons.iconarchive.com/icons/icons8/windows-8/32/Editing-Edit-icon.png"></a>
                 <a href="{% url 'delete_view' product.id %}"><img style="padding-left:10px" src="https://icons.iconarchive.com/icons/custom-icon-design/mono-general-1/32/delete-icon.png"></a>
-                <a href="{% url 'update_cart' product.slug %}"><img style="padding-left:10px"  src="https://icons.iconarchive.com/icons/custom-icon-design/pretty-office-11/64/buy-now-icon.png"></a>
+                {% for instance in object_list %}
+                    <a href='{{ instance.get_absolute_url }}'><img style="padding-left:10px"  src="https://icons.iconarchive.com/icons/custom-icon-design/pretty-office-11/64/buy-now-icon.png"></a>
+                {% endif %}
             </div>
         </div>
 

@@ -1,3 +1,5 @@
+from audioop import reverse
+
 from django.db import models
 
 
@@ -10,8 +12,8 @@ class Product(models.Model):
     description = models.TextField(null=True, blank=True)
     qty = models.IntegerField(default='0')
 
-    def __str__(self):
-        return self.title
+    def get_absolute_url(self):
+        return reverse("update_cart", kwargs={"slug":self.slug})
 
 
 class Cart(models.Model):
